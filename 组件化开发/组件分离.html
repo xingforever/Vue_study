@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        {{message}}
+        <cpm1></cmp1>
+    </div>
+    <template id='cpm1'>
+        <div>
+            <h1>哈哈哈哈哈哈哈</h1>
+            <h2>{{title}}</h2>
+        </div>
+    </template>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <!-- <script type="text/x-template" id=“cpn”>
+        <div>
+            <h1>哈哈哈哈哈哈哈</h1>
+        </div>        
+  </script> --> 
+
+
+    <script>
+        Vue.component('cpm1', {
+            template: '#cpm1',
+            data:function(){
+                 {
+                    title: "标题"
+                }
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+
+        })
+    </script>
+
+</body>
+
+</html>

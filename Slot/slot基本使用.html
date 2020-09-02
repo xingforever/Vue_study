@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        {{message}}
+        <cpn><button>按钮</button></cpn>
+        <cpn></cpn>
+        <cpn></cpn>
+    </div>
+<template id='cpn'>
+    <div>
+        <h1>11</h1>
+        <h2>222</h2>
+        <slot><i>ddddd</i></slot>
+    </div>
+</template>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            components:{
+                  cpn:{
+                    template:'#cpn'
+                  }  
+            }
+        })
+    </script>
+</body>
+
+</html>

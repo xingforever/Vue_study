@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+
+        {{message}}
+    <cpn1></cpn1>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const cpnc2=Vue.extend({
+            template:`<div><h1>22222</h1></div>`,
+        })
+        const cpnc1=Vue.extend({
+            template:`<div><h1>11111</h1><cpnc2></cpnc2></div>`,
+            components: {
+                cpnc2:cpnc2
+            }
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            components: {
+                cpn1:cpnc1
+            }
+        })
+    </script>
+</body>
+
+</html>

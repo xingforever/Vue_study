@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="ImgSrc">
+       <img v-bind:tiele="imgTitle"> -->
+        <input type="button" value="点击2" @click="changeMesage(111)">
+        <input type="text" @keyup.enter="sayHi">
+        <ul>
+            <li v-for="item in arr" v-bind:title="item">
+                {{item}}
+            </li>
+        </ul>
+
+
+        <input type="text" v-model="message">
+        <h2>{{message}}</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                imgSrc: "test.jpg",
+                imgTitle: 'testjpg',
+                arr: [1, 2, 3, 5, 7, 8, 0],
+                message:"hlxs"
+
+            },
+            methods: {
+                change: function () {
+                    alert("test")
+                },
+                changeMesage: function (p1) {
+                    //alert(this.mytest)
+                    //this.mytest='1111'
+                    console.log(p1);
+                },
+                sayHi: function () {
+                    alert("输入数据完毕")
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

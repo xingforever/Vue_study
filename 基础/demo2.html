@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <h2 v-text="message+'11'"></h2>
+    <h1 v-text="mytest"></h1>
+    <h3>{{mytest}}11</h3>
+    <div>{{myhtml}}</div>
+    <div v-html="context"></div>
+    <button v-on:click="change">点击</button>
+    <button @click="changeMesage">点击</button>
+
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:"test",
+                info:"前端移动",
+                mytest:'hlx',
+                myhtml:'江西理工大学',
+                context:"<a href='www.baidu.com'> 百度</a>"
+
+            },
+            methods:{
+                change:function(){
+                    alert("test")
+                },
+                changeMesage:function(){
+                    //alert(this.mytest)
+                    this.mytest='1111'
+
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

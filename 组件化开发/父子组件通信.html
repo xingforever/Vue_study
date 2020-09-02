@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- 父传子 -->
+        <div>
+            <cpn v-bind:cmovies="movies"></cpn>
+            <cpn2 @itemclick="cpnClick"></cpn2>
+        </div>
+
+    </div>
+    <template id='temp2'>
+        <div>
+            <button v-for="item in categories" @click="btnClick(item)">{{item.name}}</button>
+        </div>
+    </template>
+    <template id='temp1'>
+        <div>
+            <div>{{cmovies}}</div>
+            <div>{{cmessage}}</div>
+        </div>
+
+    </template>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script>
+        const cpn = {
+            template: '#temp1',
+            //props: ['cmovies','cmessage'],
+            //用对象的方式，可以指定类型，或者默认值
+            props: {
+                'cmovies': Array,
+                'cmessage': {
+                    type: String,
+                    default: 'test',
+                    //require:true
+                },
+                'ctitles': {
+                    type: Array,
+                    default: function () {
+                        return []
+                    },
+
+
+                }
+
+            },
+            data() {
+                return {}
+            }
+
+        }
+        const cpn2 = {
+            template: '#temp2',
+            data: function () {
+                return {
+                    categories: [{
+                            id: 'aaa',
+                            name: '热门推荐'
+                        },
+                        {
+                            id: 'bbb',
+                            name: '手机数码'
+                        },
+                        {
+                            id: 'ccc',
+                            name: '家用电器'
+                        },
+                    ]
+                }
+            },
+            methods: {
+                btnClick(item) {
+                    console.log(item)
+                    //发送事件
+                    this.$emit('itemclick',item)
+                }
+
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                movies: ['海王', '泰坦尼克号', '当幸福来敲门', '釜山行', '星际穿越']
+            },
+            components: {
+                cpn,
+                cpn2
+            },
+            methods: {
+                cpnClick: function (item) {
+                    alert(item.name)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
