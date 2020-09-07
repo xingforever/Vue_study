@@ -2,7 +2,7 @@
     <div class="">
         <h2>用户</h2>
         <h1>hlx</h1>
-        <H3>{{userId}}</H3>
+        <H3>{{$route.params.userId}}</H3>
     </div>
 </template>
 
@@ -11,7 +11,7 @@
         name: 'user',
         computed:{
         userId(){
-            return this.$route.param.userId
+            return this.$route.params.userId
         }
     
         }
